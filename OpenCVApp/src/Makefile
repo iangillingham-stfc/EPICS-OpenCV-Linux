@@ -58,7 +58,7 @@ ifdef T_A
 
 cmakeinstall:
 	$(CMAKE) $(OPENCV_SRC) -G "$(CMAKE_GENERATOR)" $(CMAKE_PLATFORM) -DOPENCV_INSTALL_BINARIES_PREFIX="" -DCMAKE_INSTALL_PREFIX:PATH="$(OPENCV_INSTALL)" $(CMAKE_CONFIG_FLAGS)
-	$(CMAKE) --build . --target install --config $(CMAKE_CONFIG) $(CMAKE_BUILD_FLAGS)
+	$(CMAKE) --build . --target install --config $(CMAKE_CONFIG) $(CMAKE_BUILD_FLAGS) --parallel 50
 
 install: cmakeinstall
 	-$(MKDIR) $(TOP)/bin
